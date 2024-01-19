@@ -15,13 +15,11 @@ a, dl, dt, dd, ol, ul, li, form, label, table {
   color: #F6F9F0;
   font-size: 10px;
   vertical-align: baseline;
-  word-break: keep-all;
 }
 
 body {
   line-height: 1;
   font-family: "Pretendard", sans-serif;
-  margin-bottom: 100px;
   background-color: #212529;
 }
 
@@ -36,13 +34,10 @@ button {
 }
 
 .btn, .btn-sub, .btn-main {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   padding: 1rem 2.5rem;
   border: none;
   border-radius: 10rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #F6F9F0;
 }
@@ -63,11 +58,11 @@ button {
 }
 
 .container {
-  margin: 0 auto;
-  position: relative;
   max-width: 192rem;
+  margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+  position: relative;
 }
 
 nav {
@@ -110,7 +105,7 @@ nav .nav-menus ul {
 nav .nav-menus li {
   width: 8rem;
   height: 1.6rem;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
   transition: all 0.5s;
 }
@@ -460,9 +455,9 @@ nav .nav-toggle label.hamburger > i:after {
 }
 
 .nav-changedStyle {
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 .nav-changedStyle .logo {
   width: 140px;
@@ -477,6 +472,39 @@ nav .nav-toggle label.hamburger > i:after {
 }
 .nav-changedStyle .nav-right .btn, .nav-changedStyle .nav-right .btn-main, .nav-changedStyle .nav-right .btn-sub {
   font-size: 1.4rem;
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10rem;
+}
+footer .footer-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 25rem;
+}
+footer .footer-contents p {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+footer .footer-contents img {
+  width: 113px;
+}
+@media (max-width: 1280px) {
+  footer .footer-contents {
+    padding: 5rem 15rem;
+  }
+}
+@media (max-width: 980px) {
+  footer .footer-contents {
+    padding: 5rem 10rem;
+  }
+}
+@media (max-width: 680px) {
+  footer .footer-contents {
+    padding: 5rem 0rem;
+  }
 }
 
 li {
