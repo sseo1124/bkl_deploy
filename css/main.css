@@ -1,0 +1,913 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+a, dl, dt, dd, ol, ul, li, form, label, table {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #F6F9F0;
+  font-size: 10px;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+  font-family: "Pretendard", sans-serif;
+  margin-bottom: 100px;
+  background-color: #212529;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn, .btn-sub, .btn-main {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 10rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #F6F9F0;
+}
+
+.btn-main {
+  background-color: #916AFF;
+  border: 2px solid transparent;
+}
+
+.btn-sub {
+  border: 2px solid #916AFF;
+}
+
+.btn-main:hover, .btn-sub:hover {
+  background-color: #F6F9F0;
+  color: #212529;
+  border: 2px solid transparent;
+}
+
+.container {
+  max-width: 192rem;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: #212529;
+  z-index: 5;
+  transition: all 0.5s;
+}
+nav .nav-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8.6rem;
+  position: relative;
+}
+nav .nav-left {
+  display: flex;
+  align-items: center;
+  height: 4.6rem;
+}
+nav .logo {
+  width: 150px;
+  height: 45px;
+  margin-right: 3rem;
+  transition: all 0.5s;
+}
+nav .logo img {
+  width: 100%;
+  height: 100%;
+}
+nav .nav-menus {
+  padding: 1rem;
+  margin-left: 3rem;
+}
+nav .nav-menus ul {
+  display: flex;
+  gap: 4.5rem;
+}
+nav .nav-menus li {
+  width: 8rem;
+  height: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.5s;
+}
+nav .nav-menus li a {
+  font-size: 1.8rem;
+  transition: all 0.5s;
+}
+nav .nav-menus li:hover a {
+  color: #916AFF;
+}
+nav .nav-right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+nav .nav-right .btn, nav .nav-right .btn-main, nav .nav-right .btn-sub {
+  width: 147px;
+  margin-right: 1.5rem;
+  font-size: 1.6rem;
+  transition: all 0.5s;
+}
+nav .nav-right .btn:last-child, nav .nav-right .btn-main:last-child, nav .nav-right .btn-sub:last-child {
+  margin-right: 0;
+}
+nav .nav-toggle {
+  display: none;
+  position: absolute;
+  top: 20%;
+  right: 0px;
+}
+nav .nav-toggle .nav-submenus {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  transform: translate(100vw, 0);
+  /* ie workaround */
+  -ms-transform: translatex(-100vw);
+  pointer-events: none;
+  padding-top: 125px;
+  transition: width 475ms ease-out, transform 450ms ease, border-radius 0.8s 0.1s ease;
+  border-bottom-left-radius: 100vw;
+  background-color: #a687ff;
+  background-color: rgba(107, 55, 255, 0.6);
+}
+@media (min-width: 768px) {
+  nav .nav-toggle .nav-submenus {
+    width: 40vw;
+  }
+}
+nav .nav-toggle .nav-submenus ul {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  pointer-events: auto;
+}
+nav .nav-toggle .nav-submenus li {
+  list-style: none;
+  pointer-events: auto;
+  white-space: nowrap;
+  transform: translatex(100vw);
+  /* ie workaround */
+  -ms-transform: translatex(-100vw);
+  padding: 2rem 3.5rem 2rem;
+  opacity: 0.8;
+}
+nav .nav-toggle .nav-submenus li:last-child {
+  margin-bottom: 2em;
+}
+nav .nav-toggle .nav-submenus li:hover {
+  cursor: pointer;
+  opacity: 1;
+  background-color: #c8b5ff;
+  background-color: rgba(145, 106, 255, 0.5);
+}
+nav .nav-toggle .nav-submenus li a {
+  text-decoration: none;
+  color: #F6F9F0;
+  text-align: center;
+  display: block;
+  padding: 1rem;
+  font-size: calc(24px - 0.5vw);
+}
+@media (min-width: 768px) {
+  nav .nav-toggle .nav-submenus li a {
+    text-align: right;
+    padding: 0.5rem;
+  }
+}
+nav .nav-toggle input.hamburger {
+  display: none;
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus {
+  transform: translatex(0);
+  border-bottom-left-radius: 0;
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li {
+  transform: translatex(0);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(1) {
+  transition: transform 1s 0.08s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(2) {
+  transition: transform 1s 0.16s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(3) {
+  transition: transform 1s 0.24s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(4) {
+  transition: transform 1s 0.32s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(5) {
+  transition: transform 1s 0.4s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(6) {
+  transition: transform 1s 0.48s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(7) {
+  transition: transform 1s 0.56s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(8) {
+  transition: transform 1s 0.64s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(9) {
+  transition: transform 1s 0.72s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(10) {
+  transition: transform 1s 0.8s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(11) {
+  transition: transform 1s 0.88s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(12) {
+  transition: transform 1s 0.96s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(13) {
+  transition: transform 1s 1.04s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(14) {
+  transition: transform 1s 1.12s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(15) {
+  transition: transform 1s 1.2s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(16) {
+  transition: transform 1s 1.28s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(17) {
+  transition: transform 1s 1.36s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(18) {
+  transition: transform 1s 1.44s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(19) {
+  transition: transform 1s 1.52s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(20) {
+  transition: transform 1s 1.6s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(21) {
+  transition: transform 1s 1.68s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(22) {
+  transition: transform 1s 1.76s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(23) {
+  transition: transform 1s 1.84s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(24) {
+  transition: transform 1s 1.92s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(25) {
+  transition: transform 1s 2s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(26) {
+  transition: transform 1s 2.08s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(27) {
+  transition: transform 1s 2.16s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(28) {
+  transition: transform 1s 2.24s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(29) {
+  transition: transform 1s 2.32s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(30) {
+  transition: transform 1s 2.4s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(31) {
+  transition: transform 1s 2.48s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(32) {
+  transition: transform 1s 2.56s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(33) {
+  transition: transform 1s 2.64s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(34) {
+  transition: transform 1s 2.72s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(35) {
+  transition: transform 1s 2.8s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(36) {
+  transition: transform 1s 2.88s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(37) {
+  transition: transform 1s 2.96s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(38) {
+  transition: transform 1s 3.04s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(39) {
+  transition: transform 1s 3.12s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(40) {
+  transition: transform 1s 3.2s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(41) {
+  transition: transform 1s 3.28s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(42) {
+  transition: transform 1s 3.36s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(43) {
+  transition: transform 1s 3.44s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(44) {
+  transition: transform 1s 3.52s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(45) {
+  transition: transform 1s 3.6s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(46) {
+  transition: transform 1s 3.68s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(47) {
+  transition: transform 1s 3.76s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(48) {
+  transition: transform 1s 3.84s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(49) {
+  transition: transform 1s 3.92s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li:nth-child(50) {
+  transition: transform 1s 4s cubic-bezier(0.29, 1.4, 0.44, 0.96);
+}
+nav .nav-toggle input.hamburger:checked ~ .nav-submenus li a {
+  padding-right: 15px;
+}
+nav .nav-toggle input.hamburger:checked ~ label > i {
+  background-color: transparent;
+  transform: rotate(90deg);
+}
+nav .nav-toggle input.hamburger:checked ~ label > i:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+nav .nav-toggle input.hamburger:checked ~ label > i:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+nav .nav-toggle input.hamburger:checked ~ label close {
+  color: #F6F9F0;
+  width: 100%;
+}
+nav .nav-toggle input.hamburger:checked ~ label open {
+  color: rgba(0, 0, 0, 0);
+  width: 0;
+}
+nav .nav-toggle label.hamburger {
+  z-index: 9999;
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+nav .nav-toggle label.hamburger:hover {
+  cursor: pointer;
+}
+nav .nav-toggle label.hamburger text close,
+nav .nav-toggle label.hamburger text open {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  align-items: center;
+  position: absolute;
+  transform: translateY(50px);
+  text-align: center;
+  overflow: hidden;
+  transition: width 0.25s 0.35s, color 0.45s 0.35s;
+}
+nav .nav-toggle label.hamburger text close {
+  color: rgba(0, 0, 0, 0);
+  right: 0;
+  width: 0;
+}
+nav .nav-toggle label.hamburger text open {
+  color: #F6F9F0;
+  width: 100%;
+}
+nav .nav-toggle label.hamburger > i {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  background-color: #F6F9F0;
+  pointer-events: auto;
+  transition-duration: 0.35s;
+  transition-delay: 0.35s;
+}
+nav .nav-toggle label.hamburger > i:before, nav .nav-toggle label.hamburger > i:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  left: 50%;
+  background-color: #F6F9F0;
+  content: "";
+  transition: transform 0.35s;
+  transform-origin: 50% 50%;
+}
+nav .nav-toggle label.hamburger > i:before {
+  transform: translate(-50%, -14px);
+}
+nav .nav-toggle label.hamburger > i:after {
+  transform: translate(-50%, 14px);
+}
+@media (max-width: 1024px) {
+  nav .nav-menus,
+  nav .nav-right {
+    visibility: hidden;
+  }
+  nav .nav-menus li,
+  nav .nav-menus li a,
+  nav .nav-right .btn,
+  nav .nav-right .btn-main,
+  nav .nav-right .btn-sub {
+    transition: none;
+  }
+  nav .nav-toggle {
+    display: block;
+  }
+}
+
+.nav-changedStyle {
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.nav-changedStyle .logo {
+  width: 140px;
+  height: 40px;
+}
+.nav-changedStyle .nav-menus li a {
+  color: #916AFF;
+  font-size: 1.6rem;
+}
+.nav-changedStyle .nav-menus li:hover a {
+  color: #F6F9F0;
+}
+.nav-changedStyle .nav-right .btn, .nav-changedStyle .nav-right .btn-main, .nav-changedStyle .nav-right .btn-sub {
+  font-size: 1.4rem;
+}
+
+.hero {
+  position: relative;
+  padding-top: 8.6rem;
+}
+.hero .container {
+  background-color: #212529;
+}
+.hero video {
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+
+.story {
+  margin-top: 0;
+  position: relative;
+}
+
+.ourstory {
+  display: flex;
+}
+
+.ourstory-left {
+  width: 50%;
+  display: block;
+}
+.ourstory-left .box-container {
+  height: 20%;
+}
+.ourstory-left .box-container .our-brand {
+  padding: 5% 0 5% 15%;
+  line-height: 3rem;
+}
+.ourstory-left .box-container .our-brand .brands {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #F6F9F0;
+}
+.ourstory-left .box-container .our-brand p {
+  font-size: 1.5rem;
+  color: #F6F9F0;
+}
+.ourstory-left .photo-container {
+  padding-top: 3rem;
+  position: relative;
+  padding: 0rem 0rem 5rem 0;
+}
+.ourstory-left .photo-container .swiper-container {
+  width: 70%;
+  height: 60%;
+  border-radius: 5rem 5rem 5rem 5rem;
+}
+.ourstory-left .photo-container .swiper-pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ourstory-left .photo-container .swiper-pagination .swiper-pagination-bullet {
+  background-color: #916AFF;
+  margin-right: 0.6rem;
+}
+.ourstory-left .photo-container .swiper-slide {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5rem;
+}
+.ourstory-left .photo-container .swiper-slide .description {
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+.ourstory-left .photo-container .swiper-slide .description p {
+  font-size: 1.5rem;
+}
+.ourstory-left .photo-container .swiper-slide img {
+  width: 100%;
+  border-radius: 5rem;
+}
+.ourstory-left .photo-container .swiper-slide p {
+  font-size: 2rem;
+  color: #212529;
+}
+.ourstory-left .photo-container .swiper-prev,
+.ourstory-left .photo-container .swiper-next {
+  width: 5%;
+  height: 8%;
+  border: 0.2rem solid rgb(13, 12, 12);
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+}
+.ourstory-left .photo-container .swiper-prev .icon,
+.ourstory-left .photo-container .swiper-next .icon {
+  font-size: 10px;
+  color: black;
+}
+.ourstory-left .photo-container .swiper-prev {
+  left: 5%;
+  bottom: 65%;
+  display: none;
+}
+.ourstory-left .photo-container .swiper-next {
+  display: none;
+  right: 5%;
+  bottom: 65%;
+}
+
+.ourstory-right {
+  display: block;
+  width: 50%;
+  position: relative;
+}
+.ourstory-right .swiper-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.ourstory-right .swiper-container .swiper-wrapper .swiper-slide {
+  width: 100%;
+}
+.ourstory-right .swiper-container .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.partner {
+  background-color: #212529;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.partner .card-container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.partner .card-container .card-head {
+  width: 80%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.partner .card-container .card-head h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #F6F9F0;
+  margin-bottom: 2rem;
+}
+.partner .card-container .card-head p {
+  font-size: 1.5rem;
+  color: #F6F9F0;
+}
+.partner .card-container .card-slide {
+  width: 100%;
+  padding: 1rem;
+}
+.partner .card-container .card-slide .slider {
+  height: 10rem;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.partner .card-container .card-slide .slider .slides-track {
+  animation: scroll 70s linear infinite;
+  display: flex;
+  width: 560rem;
+}
+.partner .card-container .card-slide .slider .slides-track:hover {
+  animation-play-state: paused;
+}
+.partner .card-container .card-slide .slider .slide {
+  height: 10rem;
+  width: 20rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0 2rem;
+  margin-right: 2rem;
+  background-color: none;
+}
+.partner .card-container .card-slide .slider .slide img {
+  width: 100%;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-84rem);
+  }
+}
+.partner .card-container .card-slide2 {
+  width: 100%;
+  padding: 1rem;
+}
+.partner .card-container .card-slide2 .slider {
+  height: 10rem;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.partner .card-container .card-slide2 .slider .slides-track {
+  animation: scroll2 70s linear infinite;
+  display: flex;
+  width: 560rem;
+}
+.partner .card-container .card-slide2 .slider .slides-track:hover {
+  animation-play-state: paused;
+}
+.partner .card-container .card-slide2 .slider .slide {
+  height: 10rem;
+  width: 20rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0 2rem;
+  margin-right: 2rem;
+}
+.partner .card-container .card-slide2 .slider .slide img {
+  width: 100%;
+}
+@keyframes scroll2 {
+  0% {
+    transform: translateX(-84rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.partner .card-button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  padding: 0rem 0 5rem 0;
+  margin-top: 8rem;
+}
+.partner .card-button a {
+  font-size: 2rem;
+  display: inline-block;
+  position: relative;
+  color: #F6F9F0;
+}
+.partner .card-button a:before {
+  content: attr(title);
+  font-size: 20px;
+  display: block;
+  position: absolute;
+  width: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #916AFF;
+}
+.partner .card-button a:hover:before {
+  transition: all 0.5s linear;
+  width: 100%;
+}
+.partner .card-button a:hover:before a {
+  display: none;
+}
+.partner .card-button p {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .ourstory-left,
+  .ourstory-right {
+    width: 100%;
+  }
+  .swiper-next,
+  .swiper-prev {
+    width: 5%;
+    height: 8%;
+    border: 0.2rem solid rgb(13, 12, 12);
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+  }
+  .swiper-next .icon,
+  .swiper-prev .icon {
+    font-size: 1.5rem;
+    color: black;
+  }
+  .swiper-next.swiper-prev,
+  .swiper-prev.swiper-prev {
+    left: 5%;
+    bottom: 65%;
+  }
+  .swiper-next.swiper-next,
+  .swiper-prev.swiper-next {
+    right: 5%;
+    bottom: 65%;
+  }
+}
+.end {
+  background-color: black;
+}
+.end .end-box {
+  display: flex;
+}
+.end .end-box .black-box {
+  width: 20%;
+}
+.end .end-box .black-box .imagebox {
+  width: 100%;
+  height: 100%;
+  max-height: 400rem;
+}
+.end .end-box .project-box {
+  width: 80%;
+  padding-left: 3rem;
+  padding-bottom: 10rem;
+}
+.end .end-box .project-box .boxtitle {
+  padding: 10rem 0;
+  line-height: 3rem;
+}
+.end .end-box .project-box .boxtitle h1 {
+  font-size: 2rem;
+}
+.end .end-box .project-box .boxtitle p {
+  font-size: 1.5rem;
+}
+.end .end-box .project-box .btn {
+  width: 30rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .ourstory-left,
+  .ourstory-right {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .partner .card-container {
+    width: 100%;
+  }
+  .partner .card-container .card-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 3rem 0rem;
+    line-height: 2rem;
+  }
+  .partner .card-container .card-slide {
+    width: 100%;
+  }
+  .partner .card-container .card-slide .slider {
+    height: 10rem;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .partner .card-container .card-slide .slider .slide {
+    height: 10rem;
+  }
+  .partner .card-container .card-slide .slider .slide img {
+    height: 80%;
+    width: 80%;
+    max-width: 100%;
+  }
+  .partner .card-container .card-slide2 .slider .slide {
+    height: 10rem;
+    width: 20rem;
+  }
+  .partner .card-container .card-slide2 .slider .slide img {
+    height: 80%;
+    width: 80%;
+    max-width: 100%;
+  }
+  .partner .card-button {
+    margin-top: 5rem;
+  }
+  .partner .card-button a {
+    font-size: 1.5rem;
+  }
+  .end .end-box {
+    display: flex;
+  }
+  .end .end-box .black-box {
+    display: none;
+  }
+  .end .end-box .project-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 1rem;
+    padding-bottom: 5rem;
+  }
+  .end .end-box .project-box .boxtitle {
+    padding: 5rem 0;
+    line-height: 5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .end .end-box .project-box .boxtitle h1 {
+    font-size: 2rem;
+  }
+  .end .end-box .project-box .boxtitle p {
+    font-size: 1.5rem;
+  }
+  .end .end-box .project-box .btn {
+    width: 18rem;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,155 @@
+@use './common';
+
+.portfolio-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 8.7rem;
+
+  .portfolio-title {
+    width: 100%;
+    height: 50rem;
+    padding: 15rem 15rem;
+    line-height: 1.5;
+
+    @media screen and (max-width: 768px) {
+      padding: 10rem;
+      text-align: center;
+
+      p {
+        word-break: keep-all;
+      }
+    }
+
+    h2 {
+      font-size: 4rem;
+    }
+
+    p{
+      font-size: 2rem;
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 70rem);
+  grid-template-rows: repeat(3, 90rem);
+  justify-content: end;
+
+  .grid-item {
+    position: relative;
+    width: 40rem;
+    height: 55rem;
+
+    .portfolio-front {
+      position: relative;
+
+      img {
+        width: 40rem;
+        height: 55rem;
+        border-radius: 1.5rem;
+        transition: opacity 0.5s;
+
+        @media screen and (max-width: 768px) {
+          width: 30rem;
+          height: 40rem;
+          margin-left: 13%;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      h3 {
+        position: absolute;
+        top: 0;
+        left: -67px;
+        text-align: right;
+        transform-origin: top right;
+        transform: translate(-100%, 0) rotate(-90deg);
+        font-size: 4rem;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: -.2px;
+
+        @media screen and (max-width: 768px) {
+          position: static;
+          transform: none;
+          font-size: 3rem;
+          text-align: center;
+          padding-top: 105%;
+        }
+      }
+
+      p {
+        max-width: 34rem;
+        text-align: right;
+        padding-top: 1rem;
+      }
+    }
+
+    .portfolio-back {
+      display: none;
+      position: absolute;
+      top: 4.5rem;
+      left: 2.5rem;
+      line-height: 5;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 13%;
+        line-height: 2;
+        width: 28rem;
+        height: 40rem;
+      }
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
+
+    &:hover {
+      .portfolio-front img {
+        background-color: black;
+        opacity: .5;
+      }
+
+      .portfolio-back {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .portfolio-list {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 55rem);
+    grid-template-rows: repeat(3, 70rem);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+  }
+}

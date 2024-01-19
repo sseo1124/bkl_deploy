@@ -1,0 +1,586 @@
+// 공통 스타일 파일을 사용합니다.
+@use './_common.scss';
+
+// 슬라이드 및 애니메이션 관련 변수들을 설정합니다.
+$totSlides: 14;
+$slideWidth: 20rem;
+$slideHeight: 10rem;
+$animationSpeed: calc(5s * $totSlides);
+
+// Hero 섹션 스타일
+.hero {
+  position: relative;
+  padding-top: 8.6rem;
+
+  // Hero 컨테이너 스타일
+  .container {
+    background-color: common.$color-black;
+  }
+
+  // 비디오 스타일
+  video {
+    display: block;
+    width: 100%;
+    height: 50%;
+  }
+}
+
+// 이야기 섹션 스타일
+.story {
+  margin-top: 0;
+  position: relative;
+}
+
+// 우리 이야기 섹션 스타일
+.ourstory {
+  display: flex;
+}
+
+// 우리 이야기 - 왼쪽 섹션 스타일
+.ourstory-left {
+  width: 50%;
+  display: block;
+
+  // 브랜드 정보 컨테이너 스타일
+  .box-container {
+    height: 20%;
+
+    // 브랜드 정보 스타일
+    .our-brand {
+      padding: 5% 0 5% 15%;
+      line-height: 3rem;
+
+      // 브랜드 이름 스타일
+      .brands {
+        font-size: 2rem;
+        font-weight: 500;
+        color: common.$color-white;
+      }
+
+      // 브랜드 설명 스타일
+      p {
+        font-size: 1.5rem;
+        color: common.$color-white;
+      }
+    }
+  }
+
+  // 사진 컨테이너 스타일
+  .photo-container {
+    padding-top: 3rem;
+    position: relative;
+    padding: 0rem 0rem 5rem 0;
+
+    // Swiper 슬라이더 컨테이너 스타일
+    .swiper-container {
+      width: 70%;
+      height: 60%;
+      border-radius: 5rem 5rem 5rem 5rem;
+    }
+
+    // Swiper 페이지네이션 스타일
+    .swiper-pagination {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .swiper-pagination-bullet {
+        background-color: common.$color-main;
+        margin-right: 0.6rem;
+      }
+    }
+
+    // Swiper 슬라이드 스타일
+    .swiper-slide {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5rem;
+
+      // 설명 스타일
+      .description {
+        width: 100%;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        p {
+          font-size: 1.5rem;
+        }
+      }
+
+      // 이미지 스타일
+      img {
+        width: 100%;
+        border-radius: 5rem;
+      }
+
+      // 문장 스타일
+      p {
+        font-size: 2rem;
+        color: common.$color-black;
+      }
+    }
+
+    // Swiper 이전/다음 버튼 스타일
+    .swiper-prev,
+    .swiper-next {
+      width: 5%;
+      height: 8%;
+      border: 0.2rem solid rgb(13, 12, 12);
+      border-radius: 50%;
+      z-index: 1;
+      cursor: pointer;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      position: absolute;
+
+      // 아이콘 스타일
+      .icon {
+        font-size: 10px;
+        color: black;
+      }
+    }
+
+    // 이전 버튼 위치 및 숨김 처리
+    .swiper-prev {
+      left: 5%;
+      bottom: 65%;
+      display: none;
+    }
+
+    // 다음 버튼 숨김 처리
+    .swiper-next {
+      display: none;
+      right: 5%;
+      bottom: 65%;
+    }
+  }
+}
+
+// 우리 이야기 - 오른쪽 섹션 스타일
+.ourstory-right {
+  display: block;
+  width: 50%;
+  position: relative;
+
+  // Swiper 컨테이너 스타일
+  .swiper-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    // Swiper 슬라이드 Wrapper 스타일
+    .swiper-wrapper {
+      // Swiper 슬라이드 스타일
+      .swiper-slide {
+        width: 100%;
+
+        // 이미지 스타일
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+// 파트너 섹션 스타일
+.partner {
+  background-color: common.$color-black;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  // 카드 컨테이너 스타일
+  .card-container {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    // 카드 헤더 스타일
+    .card-head {
+      width: 80%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      // 제목 스타일
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: common.$color-white;
+        margin-bottom: 2rem;
+      }
+
+      // 설명 스타일
+      p {
+        font-size: 1.5rem;
+        color: common.$color-white;
+      }
+    }
+
+    // 카드 슬라이드 스타일
+    .card-slide {
+      width: 100%;
+      padding: 1rem;
+
+      // 슬라이더 컨테이너 스타일
+      .slider {
+        height: $slideHeight;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      // 슬라이더 트랙 스타일
+      .slider .slides-track {
+        animation: scroll $animationSpeed linear infinite;
+        display: flex;
+        width: calc($slideWidth * $totSlides * 2);
+        &:hover {
+          animation-play-state: paused;
+        }
+        // max-width: 300%;
+      }
+
+      // 각 슬라이드 스타일
+      .slider .slide {
+        height: 10rem;
+        width: $slideWidth;
+        
+
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        padding: 0 2rem;
+        margin-right: 2rem;
+        background-color: none;
+
+        // 이미지 스타일
+        img {
+          // height: 100%;
+          width: 100%;
+          // max-width: 300%;
+        }
+      }
+
+      // 슬라이더 애니메이션 스타일
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc($slideWidth * $totSlides * -0.3));
+        }
+      }
+    }
+
+    // 추가 카드 슬라이드 스타일
+    .card-slide2 {
+      width: 100%;
+      padding: 1rem;
+
+      // 슬라이더 컨테이너 스타일
+      .slider {
+        height: $slideHeight;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      // 슬라이더 트랙 스타일
+      .slider .slides-track {
+        animation: scroll2 $animationSpeed linear infinite;
+        display: flex;
+        width: calc($slideWidth * $totSlides * 2);
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
+
+      // 각 슬라이드 스타일
+      .slider .slide {
+        height: 10rem;
+        width: $slideWidth;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        padding: 0 2rem;
+        margin-right: 2rem;
+
+        // 이미지 스타일
+        img {
+          // height: 100%;
+          width: 100%;
+          
+        }
+      }
+
+      // 슬라이더 애니메이션 스타일
+      @keyframes scroll2 {
+        0% {
+          transform: translateX(calc($slideWidth * $totSlides * -0.3));
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  // 카드 버튼 및 추가 설명 스타일
+  .card-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    padding: 0rem 0 5rem 0;
+    margin-top: 8rem;
+
+    // 링크 스타일
+    a {
+      font-size: 2rem;
+      display: inline-block;
+      position: relative;
+      color: common.$color-white;
+    }
+
+    // 링크 애니메이션 스타일
+    a:before {
+      content: attr(title);
+      font-size: 20px;
+      display: block;
+      position: absolute;
+      width: 0px;
+      white-space: nowrap;
+      overflow: hidden;
+      color: common.$color-main;
+    }
+
+    // 링크 호버 애니메이션 스타일
+    a:hover:before {
+      transition: all 0.5s linear;
+      width: 100%;
+      a{
+        display: none;
+      }
+      // font-size: 3rem;
+    }
+
+    // 추가 설명 스타일
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// 미디어 쿼리: 화면 너비 1200px 이하일 때
+@media screen and (max-width: 1024px) {
+  .ourstory-left,
+  .ourstory-right {
+    width: 100%;
+  }
+
+  .swiper-next,
+  .swiper-prev {
+    width: 5%;
+    height: 8%;
+    border: 0.2rem solid rgb(13, 12, 12);
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+
+    .icon {
+      font-size: 1.5rem;
+      color: black;
+    }
+
+    // 이전 버튼 위치 및 스타일
+    &.swiper-prev {
+      left: 5%;
+      bottom: 65%;
+    }
+
+    // 다음 버튼 위치 및 스타일
+    &.swiper-next {
+      right: 5%;
+      bottom: 65%;
+    }
+  }
+}
+
+// 끝 섹션 스타일
+.end {
+  background-color: black;
+
+  // 컨텐츠 박스 스타일
+  .end-box {
+    display: flex;
+
+    // 검정색 박스 스타일
+    .black-box {
+      width: 20%;
+
+      // 이미지 박스 스타일
+      .imagebox {
+        width: 100%;
+        height: 100%;
+        max-height: 400rem;
+      }
+    }
+
+    // 프로젝트 박스 스타일
+    .project-box {
+      width: 80%;
+      padding-left: 3rem;
+      padding-bottom: 10rem;
+
+      // 제목과 설명 스타일
+      .boxtitle {
+        padding: 10rem 0;
+        line-height: 3rem;
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+      }
+
+      // 버튼 스타일
+      .btn {
+        width: 30rem;
+      }
+    }
+  }
+}
+
+// 미디어 쿼리: 화면 너비 1024px 이하일 때
+@media screen and (max-width: 1024px) {
+  .ourstory-left,
+  .ourstory-right {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .partner {
+    .card-container {
+      width: 100%;
+      .card-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        padding: 3rem 0rem;
+        line-height: 2rem;
+      }
+  
+      .card-slide {
+        width: 100%;
+        // padding: 1rem;
+  
+        .slider {
+          height: $slideHeight;
+          margin: auto;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+        }
+
+        .slider .slide {
+          height: 10rem;
+          // margin-right: .3rem;
+        }
+  
+        .slider .slide img {
+          height: 80%;
+          width: 80%;
+          max-width: 100%;
+        }
+      }
+  
+      .card-slide2 {  
+        .slider .slide {
+          height: 10rem;
+          width: $slideWidth;
+          // margin-right: .3rem;
+        }
+  
+        .slider .slide img {
+          height: 80%;
+          width: 80%;
+          max-width: 100%;
+        }
+      }
+    }
+    .card-button{
+      margin-top: 5rem;
+      a {
+        font-size: 1.5rem;
+    } 
+  }
+  }
+
+  .end{
+
+    .end-box{
+      display: flex;
+      .black-box{
+        // width: 50%;
+        display: none;
+      }
+      .project-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-left: 1rem;
+        padding-bottom: 5rem;
+        .boxtitle{
+          padding: 5rem 0;
+          line-height: 5rem;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          h1{
+            font-size: 2rem;
+          }
+          p{
+            font-size: 1.5rem;
+          }
+        }
+        .btn{
+          width: 18rem;
+          
+        }
+      }
+    }
+  }
+  
+}

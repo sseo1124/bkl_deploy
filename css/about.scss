@@ -1,0 +1,426 @@
+@use './common';
+
+//utility class
+.button-circle {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: common.$color-main;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: common.$color-white;
+  opacity: 0.7;
+}
+.button-circle:hover {
+  opacity: 1;
+}
+
+// ================================================
+.aboutBg {
+  padding-top: 8.7rem;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/about-bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .aboutBg-wrapper {
+    padding: 15rem 0;
+  }
+  .aboutBg-title {
+    line-height: normal;
+    p {
+      padding-top: 1.5rem;
+      padding-bottom: 2.5rem;
+      font-size: 2.6rem;
+      color: rgba(255, 255, 255, .6);
+
+      &::before {
+        content: "";
+        background-image: url("../img/c-logo-before.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10px;
+        height: 26px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+      }
+
+      &::after {
+        content: "";
+        background-image: url("../img/c-logo-after.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10px;
+        height: 26px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 1rem;
+        margin-left: 1rem;
+      }
+    }
+    h3{
+      font-size: 5.5rem;
+      font-weight: 700;
+    }
+  }
+  @media (max-width: 1280px) {
+    .aboutBg-wrapper {
+      padding: 15rem 0;
+    }
+    .aboutBg-title {
+      p {
+        font-size: 2.3rem;
+      }
+      h3{
+        font-size: 4rem;
+      }
+    }
+  }
+  @media (max-width: 980px) {
+    .aboutBg-wrapper {
+      padding: 20rem 0;
+    }
+    .aboutBg-title {
+      p {
+        font-size: 2.0rem;
+      }
+      h3{
+        font-size: 3.8rem;
+      }
+    }
+  }
+  @media (max-width: 680px) {
+    .aboutBg-wrapper {
+      padding: 14rem 0;
+    }
+    .aboutBg-title {
+      p {
+        font-size: 2.0rem;
+      }
+      h3{
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+.aboutValue {
+  padding-top: 20rem;
+
+  .aboutValue-infoBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  // 기본 33.333% - 40px /// 줄여드는 크기 23.5% - 40px /// 53.33% - 40px
+  .infoBox-item {
+    width: calc(23.5% - 40px);
+    height: 50rem;
+    border: 1px solid #926aff6c;
+    padding: 3.4rem 3rem;
+    background-repeat: no-repeat;
+    background-position: 50% 90%;
+    background-size: 40%;
+    transition: width 0.4s ease-in-out;
+
+
+    
+    h4 {
+      font-size: 1.88rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+    
+    p {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: -0.3pt;
+      line-height: 1.8;
+      margin-top: 25rem;
+      opacity: 0;
+      transform: translateY(3rem);
+      transition: all 0.4s ease-in-out 0.2s;
+    }
+    &.first {
+      background-image: url("../img/professional-logo.png");
+    }
+    &.second {
+      background-image: url("../img/challenge-logo.png");
+    }
+    &.third {
+      background-image: url("../img/communication-logo.png");
+    }
+    &.active {
+      width: calc(53.33% - 40px);
+      box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+      &.first {
+        background-image: url('../img/professional-bg.jpeg');
+        background-size: cover;
+      }
+      &.second {
+        background-image: url('../img/professional-bg.jpeg');
+        background-size: cover; 
+      }
+      &.third {
+        background-image: url('../img/professional-bg.jpeg');
+        background-size: cover; 
+      }
+      p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  @media (max-width: 980px) {
+    // padding-top: 20rem;
+
+    .aboutValue-infoBox {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    // 기본 33.333% - 40px /// 줄여드는 크기 23.5% - 40px /// 53.33% - 40px
+    .infoBox-item {
+      width: 100%;
+      height: 20rem;
+      padding: 8%;
+      background-position: right 8% bottom 8%;
+      background-size: 20%;
+      transition: height 0.4s ease-in-out;
+
+      p {
+        margin-top: 15rem;
+        opacity: 0;
+        transform: translateY(3rem);
+        transition: all 0.4s ease-in-out 0.2s;
+      }
+      &.active {
+        width: 100%;
+        height: 400px;
+        box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+  
+        p {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  @media (max-width: 680px) {
+    .infoBox-item {
+      p {
+        margin-top: 17rem;
+      }
+    }
+  }
+}
+.subTitle {
+  padding-top: 20rem;
+  .subTitle-wrapper {
+    h3 {
+      font-size: 7rem;
+      font-weight: 200;
+      color: common.$color-white;
+      letter-spacing: -1.8pt;
+      line-height: 120%;
+
+      strong {
+        display: inline;
+        font-weight: 800;
+      }
+    }
+    .right-area {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      bottom: -100px;
+      z-index: 3;
+    }
+    p {
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: -0.75pt;  
+      line-height: 150%;
+      color: rgba(255, 255, 255, .6);
+
+      strong {
+        display: block;
+        font-weight: 700;
+        letter-spacing: -0.75pt;
+        line-height: 150%;
+        padding: 0 0 30px;
+        color: common.$color-main;
+      }
+    }
+    img {
+      display: block;
+      position: relative;
+      max-width: 100%;
+      box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+      }
+    }
+    .linetitle {
+      top: -100px;
+
+      span {
+        display: block;
+        font-size: 15rem;
+        font-weight: 900;
+        font-style: italic;
+        font-family: 'Poppins';
+        line-height: 100%;
+        color: transparent;
+        -webkit-text-stroke: 1px #F8D899;
+        opacity: 0.7;
+
+        &.one {
+          text-align: left;
+          padding: 0 0 2px;
+        }
+        &.two {
+          text-align: right;
+          padding: 0 20px 40px 0;
+        }
+        &.three {
+          text-align: center;
+          padding-right: 60px;
+        }
+      }
+    }
+  }
+  @media (max-width:1280px) {
+    .subTitle-wrapper {
+      h3 {
+        font-size: 5.5rem;
+        padding: 0 0 30px;
+      }
+      .right-area {
+        bottom: -40px;
+      }
+      p {
+        font-size: 2rem;
+  
+        strong {
+          padding: 0 0 20px;
+        }
+      }
+
+      .linetitle {
+        position: relative;
+        z-index: 3;
+        top: -60px;
+  
+        span {
+          font-size: 11rem;
+  
+          &.one {
+            padding: 0 0 15px;
+          }
+          &.two {
+            padding: 0 20px 30px 0;
+          }
+          &.three {
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width:980px) {
+    .subTitle-wrapper {
+      h3 {
+        font-size: 4rem;
+        padding: 0 0 20px;
+
+      }
+      .right-area {
+        bottom: -30px;
+      }
+      p {
+        font-size: 1.6rem;
+  
+        strong {
+          padding: 0 0 15px;
+        }
+      }
+
+      .linetitle {
+        top: -40px;
+  
+        span {
+          font-size: 7rem;
+  
+          &.one {
+            padding: 0 0 10px;
+          }
+          &.two {
+            padding: 0 20px 20px 0;
+          }
+          &.three {
+            padding-right: 30px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width:680px) {
+    .subTitle-wrapper {
+      h3 {
+        font-size: 2.6rem;
+        letter-spacing: -0.75pt;
+        padding: 0 0 30px;
+
+        strong {
+          letter-spacing: -0.75pt;
+        }
+      }
+      .right-area {
+        bottom: 0;
+      }
+      p {
+        font-size: 1.4rem;
+  
+        strong {
+          padding: 0 0 10px;
+        }
+      }
+
+      .linetitle {
+        top: -30px;
+  
+        span {
+          font-size: 5rem;
+  
+          &.one {
+            padding: 0 0 8px;
+          }
+          &.two {
+            padding: 0 15px 15px 0;
+          }
+          &.three {
+            padding-right: 30px;
+          }
+        }
+      }
+    }
+  }
+}
